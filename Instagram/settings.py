@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'Instagram.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'instaclone',
+        'NAME': 'clonegram',
         'USER' : 'biron',
         'PASSWORD':'Biron4745',
         'HOST':'localhost',
