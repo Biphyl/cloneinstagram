@@ -17,10 +17,10 @@
                             <div class="card-title">
                                 <p class="user-name">{{ post.author }}</p>
                             </div>
-                            <a href="{% url 'commenting' post.id %}"><img class="w-100" src="{{post.image.url}}" alt="{{post.author}}"></a>
+                            <a href="{% url 'add_comment' post.id %}"><img class="w-100" src="{{post.image.url}}" alt="{{post.author}}"></a>
                         </div>
                         <div class="post-info">
-                            <a class="text-primary ml-3" href="{% url 'commenting' post.id%}"><i class="fa fa-comment"></i>
+                            <a class="text-primary ml-3" href="{% url 'add_comment' post.id%}"><i class="fa fa-comment"></i>
                             {{post.comments.all.count}} {{post.comments.all.pluralize}}</a>
                             <a class="text-info ml-3" href="#"><i class="fa fa-share"></i></a>
                             {% if post.likes.id == user.id %}
