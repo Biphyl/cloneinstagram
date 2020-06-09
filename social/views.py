@@ -107,3 +107,22 @@ def search_user(request):
         }
         return render(request, 'search.html', context)
 
+def follow(request,operation,pk):
+    new_follower = User.objects.get(pk=pk)
+    if operation == 'add':
+        Following.make_user(request.user, new_follower)
+    elif operation == 'remove':
+        Following.loose_user(request.user, new_follower)
+
+    return redirect('posts')
+
+@login_required
+def likes(request, post_id):
+    post = Post.objects.get(pk=post_id)
+    if post.likes.filter(id=request.user.id).exists():
+        post.likes.remove(request.user)
+        is_liked = False
+    else:
+        post.likes.add(request.user)
+        is_liked=True
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
