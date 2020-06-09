@@ -21,12 +21,13 @@
     {% bootstrap_css %}
     <link rel="stylesheet" href="{% static 'css/styles.css'%}">
     {%  endblock %}
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
 </head>
 
 <body>
+
     <nav class="navbar navbar-expand-lg light fixed-top" id="">
-        <a class="text-successprimary text-title insta" href="{% url 'posts' %}"><i
-                class="fa fa-instagram text-primary ml-2"></i>Instagram</a>
+        <a class="text-successprimary text-title insta" href="{% url 'posts' %}"><img src="https://img.icons8.com/officel/80/000000/instagram-new.png"/>Instagram</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="fa fa-bars fa-3x mt-3 text-white"></span>

@@ -4,6 +4,11 @@ from django.contrib import messages
 from .forms import UserCreationForm,UserUpdateForm,CommentForm,ProfileUpdateForm,PostForm,RegisterForm
 from django.contrib.auth.decorators import login_required
 
+def home(request):
+
+    return render(request, 'logout.html')
+
+    
 @login_required
 def post(request):
     posts = Post.objects.all()
@@ -107,14 +112,6 @@ def search_user(request):
         }
         return render(request, 'search.html', context)
 
-def follow(request,operation,pk):
-    new_follower = User.objects.get(pk=pk)
-    if operation == 'add':
-        Following.make_user(request.user, new_follower)
-    elif operation == 'remove':
-        Following.loose_user(request.user, new_follower)
-
-    return redirect('posts')
 
 @login_required
 def likes(request, post_id):
